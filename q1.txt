@@ -1,0 +1,27 @@
+GAME THEORY
+
+--> There are two types of games: 
+    a) Finders Keepers game: : In this format, the person who picks the last coin wins.
+    b) Keepers Losers game: In this format, the person who picks the last coin loses.
+
+Q1) In a game there are 74 coins. Two people, A and B are playing the game. In each turn, a player can pick either 2,3,4,5 or 6 coins. The person who picks the last coin wins the game. The game starts with A picking the first coin. How many coins should A pick in his first turn so that he is guaranteed to win the game? 
+Soln:
+The idea is to reduce our game to the nearest multiple of A+B (8) and then pick the number of coins such that the number of coins left is a multiple of 8. So, let's say A picks x coins, if (74-x) is a multiple of 8 then A wins else he loses. So, we need to find the value of x such that (74-x) is a multiple of 8. 
+Hence, A picks 2 coins in his first turn to win the game.
+
+Q2) In a game of keepers-losers, B started the game when there were n coins on the table. If B is confident in winning the game and players can pick coins from 3 to 5, which of the following cannot be the value of n? 92, 94, 76, 66
+Soln:
+For each n, we will first calculate the nearest multiple of (3+5) < n, then from [1, A] we will see if n can be reached on adding it or not. If it can be reached, then it will be the answer. Thue for the above question, 66 will be the answer as A will win in that case. (66 = 8*8 + 2)
+
+GAME OF NIM
+--> In this game, there are n piles of coins. In each turn, a player can pick any number of coins from any one pile. The player who picks the last coin wins the game.
+--> xor of all the piles is the key to win the game. If xor of all the piles is 0, then the second player will win else the first player will win.
+
+GRUNDY NUMBER
+--> Grundy number of a pile is the mex of the grundy numbers of the piles that can be reached from the current pile in one move.
+--> mex of a set is the smallest non-negative number that is not present in the set.
+--> G(S) = mex(G(S1), G(S2), G(S3), ...., G(Sk)) where S1, S2, S3, ...., Sk are the states that can be reached from the current state S in one move.
+
+Sprague Grundy Theorem--> If the xor of the grundy numbers of all the piles is 0, then the second player will win else the first player will win.
+
+--> If we can pick any number of coins, the it's a nim game else it is a grundy game.
